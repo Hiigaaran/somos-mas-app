@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SomosMasApp</string>
+    <string name="signup">Registrarme</string>
+    <string name="logosomosmasapp">logosomosmasapp</string>
+    <string name="signup_signin">Ya tienes cuenta? Ingresa!</string>
+    <string name="name">Nombre y apellido</string>
 </resources>
