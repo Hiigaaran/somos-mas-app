@@ -4,4 +4,7 @@
     <string name="logosomosmasapp">logosomosmasapp</string>
     <string name="signup_signin">Ya tienes cuenta? Ingresa!</string>
     <string name="name">Nombre y apellido</string>
+    <string name="email">Correo Electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="passwordconfirm">Repite la contraseña</string>
 </resources>

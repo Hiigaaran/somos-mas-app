@@ -22,8 +22,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="40dp"
+        android:layout_marginHorizontal="25dp"
         android:hint="@string/name"
+        app:hintTextColor="@color/grey"
+        app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logo" >
@@ -31,7 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            />
+            android:fontFamily="@font/poppins" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -39,9 +41,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="40dp"
+        android:layout_marginHorizontal="25dp"
         android:inputType="textEmailAddress"
-        android:hint="Correo Electronico"
+        android:hint="@string/email"
+        app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" >
@@ -49,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/poppins"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,9 +61,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="40dp"
+        android:layout_marginHorizontal="25dp"
         android:inputType="textPassword"
-        android:hint="Contraseña"
+        android:hint="@string/password"
+        app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" >
@@ -67,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/poppins"
             />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,15 +81,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginHorizontal="40dp"
+        android:layout_marginHorizontal="25dp"
         android:inputType="textPassword"
-        android:hint="Repite la contraseña"
+        android:hint="@string/passwordconfirm"
+        app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" >    <com.google.android.material.textfield.TextInputEditText
+        app:layout_constraintTop_toBottomOf="@+id/password" >
+        <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:fontFamily="@font/poppins"
         />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -91,13 +100,16 @@
         android:id="@+id/signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40dp"
+        android:layout_marginHorizontal="25dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/red"
+        android:fontFamily="@font/poppins_semibold"
         android:letterSpacing="-0.033"
         android:text="@string/signup"
         android:textColor="@color/white"
-        app:layout_constraintTop_toBottomOf="@+id/passwordconfirm" />
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/passwordconfirm"
+        tools:layout_editor_absoluteX="25dp" />
 
     <TextView
         android:id="@+id/signin"
@@ -106,6 +118,7 @@
         android:layout_marginTop="6dp"
         android:letterSpacing="-0.033"
         android:text="@string/signup_signin"
+        android:fontFamily="@font/poppins"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
