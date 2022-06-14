@@ -4,15 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/signup.xml" value="0.24791666666666667" />
+        <entry key="app/src/main/res/layout/window_login.xml" value="0.19610507246376813" />
       </map>
     </option>
   </component>
-        <entry key="..\:/Users/Fronko/Documents/GitHub/somos-mas-app/app/src/main/res/drawable/redondear_cuadrados.xml" value="0.3065" />
-        <entry key="..\:/Users/Fronko/Documents/GitHub/somos-mas-app/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
-      </map>
-    </option>
-  </component>
-  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
