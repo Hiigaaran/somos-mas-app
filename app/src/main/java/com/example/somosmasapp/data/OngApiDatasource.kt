@@ -1,9 +1,6 @@
 package com.example.somosmasapp.data
 
-import com.example.somosmasapp.data.dto.Login
-import com.example.somosmasapp.data.dto.Register
-import com.example.somosmasapp.data.dto.RepositoryError
-import com.example.somosmasapp.data.dto.RepositoryResponse
+import com.example.somosmasapp.data.dto.*
 import com.example.somosmasapp.data.util.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,11 +13,11 @@ import retrofit2.Response
  * 2. Register
  */
 class OngApiDatasource {
-    fun doRegister(body: Register, listener: ResponseListener<Void>) {
+    fun doRegister(body: Register, listener: ResponseListener<UserRegister>) {
         val service = RetrofitService.instance.create(OngApiService::class.java).doRegister(body)
 
-        service.enqueue(object: Callback<RepositoryResponse<Void>> {
-            override fun onResponse(call: Call<RepositoryResponse<Void>>, response: Response<RepositoryResponse<Void>>) {
+        service.enqueue(object: Callback<RepositoryResponse<UserRegister>> {
+            override fun onResponse(call: Call<RepositoryResponse<UserRegister>>, response: Response<RepositoryResponse<UserRegister>>) {
                 val callResponse = response.body()
                 if(response.isSuccessful && null != callResponse) {
                     listener.onResponse(
@@ -40,7 +37,7 @@ class OngApiDatasource {
                 }
             }
 
-            override fun onFailure(call: Call<RepositoryResponse<Void>>, t: Throwable) {
+            override fun onFailure(call: Call<RepositoryResponse<UserRegister>>, t: Throwable) {
                 listener.onError(
                     RepositoryError(
                         "Unexpected Error",
@@ -52,13 +49,13 @@ class OngApiDatasource {
         })
     }
 
-    fun doLogin(body: Login, listener: ResponseListener<Void>) {
+    fun doLogin(body: Login, listener: ResponseListener<UserRegister>) {
         val service = RetrofitService.instance.create(OngApiService::class.java).doLogin(body)
 
-        service.enqueue(object: Callback<RepositoryResponse<Void>> {
+        service.enqueue(object: Callback<RepositoryResponse<UserRegister>> {
             override fun onResponse(
-                call: Call<RepositoryResponse<Void>>,
-                response: Response<RepositoryResponse<Void>>
+                call: Call<RepositoryResponse<UserRegister>>,
+                response: Response<RepositoryResponse<UserRegister>>
             ) {
                 val callResponse = response.body()
                 if (response.isSuccessful && null != callResponse) {
@@ -80,7 +77,7 @@ class OngApiDatasource {
                 }
             }
 
-            override fun onFailure(call: Call<RepositoryResponse<Void>>, t: Throwable) {
+            override fun onFailure(call: Call<RepositoryResponse<UserRegister>>, t: Throwable) {
                 listener.onError(
                     RepositoryError(
                         "Unexpected Error",
