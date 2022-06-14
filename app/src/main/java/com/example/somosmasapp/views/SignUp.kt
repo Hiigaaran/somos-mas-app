@@ -1,6 +1,7 @@
 package com.example.somosmasapp.views
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.somosmasapp.R
@@ -18,6 +19,10 @@ class SignUp : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        binding.signup.setOnClickListener {
+            onRegisterButtonClicked()
+        }
     }
 
     fun onRegisterButtonClicked() {
@@ -30,10 +35,12 @@ class SignUp : AppCompatActivity() {
 
         viewModel.success.observe(this) {
             value ->
-            if (value) {
-                TODO("Implementar los pasos que aplican cuando el registro es exitoso")
-            } else {
-                TODO("Implementar los pasos que aplican cuando el registro es fallido")
+            if (null != value) {
+                if (value) {
+                    Toast.makeText(this,  "Registro Exitoso", Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this, "Registro Fallido", Toast.LENGTH_LONG).show()
+                }
             }
         }
     }
