@@ -65,7 +65,7 @@
             <Button
                 android:id="@+id/buttonEntrarlogin"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="44dp"
                 android:text="Login"
                 android:layout_marginHorizontal="16dp"
                 app:backgroundTint="@color/rojo"
