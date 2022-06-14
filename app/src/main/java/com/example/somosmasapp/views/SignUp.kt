@@ -17,6 +17,7 @@ class SignUp : AppCompatActivity() {
         binding = SignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     fun onRegisterButtonClicked() {
@@ -36,4 +37,12 @@ class SignUp : AppCompatActivity() {
             }
         }
     }
+
+
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
+    }
+
 }
