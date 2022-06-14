@@ -68,7 +68,7 @@
                 android:layout_height="44dp"
                 android:text="Login"
                 android:layout_marginHorizontal="16dp"
-                app:backgroundTint="@color/rojo"
+                app:backgroundTint="@color/red"
                 android:background="@drawable/redondear_cuadrados"/>
 
             <TextView
