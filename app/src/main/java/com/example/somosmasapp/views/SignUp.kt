@@ -18,8 +18,6 @@ class SignUp : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-
     }
 
     fun onRegisterButtonClicked() {
