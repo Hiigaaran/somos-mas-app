@@ -1,8 +1,12 @@
 package com.example.somosmasapp.views
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.somosmasapp.R
 import com.example.somosmasapp.data.dto.Register
@@ -37,7 +41,7 @@ class SignUp : AppCompatActivity() {
             value ->
             if (null != value) {
                 if (value) {
-                    Toast.makeText(this,  "Registro Exitoso", Toast.LENGTH_LONG).show()
+                    onSuccessfullRegister()
                 } else {
                     Toast.makeText(this, "Registro Fallido", Toast.LENGTH_LONG).show()
                 }
@@ -45,7 +49,24 @@ class SignUp : AppCompatActivity() {
         }
     }
 
+    fun onSuccessfullRegister() {
+        val alertDialog = AlertDialog.Builder(this)
+        val okDialog = layoutInflater.inflate(R.layout.signup_dialog, null)
+        alertDialog.setView(okDialog)
+        alertDialog.create().show()
 
+        val okButton: Button = okDialog.findViewById(R.id.okSignupBtn)
+        okButton.setOnClickListener {
+            onDialogOkBtnClicked()
+        }
+    }
+
+    fun onDialogOkBtnClicked() {
+        val intent = Intent(this, Login::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        startActivity(intent)
+    }
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
