@@ -15,7 +15,7 @@ class SignUpViewModel(private val repository: OngApiRepository): ViewModel() {
 
     fun doRegister(body: Register) {
         message.value = null
-        success.value = false
+        success.value = null
         error.value = null
         user.value = null
         token.value = null

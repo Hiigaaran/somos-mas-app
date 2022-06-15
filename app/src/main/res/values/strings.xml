@@ -7,4 +7,6 @@
     <string name="email">Correo Electrónico</string>
     <string name="password">Contraseña</string>
     <string name="passwordconfirm">Repite la contraseña</string>
+    <string name="signup_dialog_message">User was succesfully register</string>
+    <string name="ok_btn_placeholder_text">OK</string>
 </resources>
