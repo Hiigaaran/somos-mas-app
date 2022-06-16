@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.somosmasapp.R
 import com.example.somosmasapp.data.dto.Register
 import com.example.somosmasapp.data.util.CorreoWatcher
+import com.example.somosmasapp.data.util.ValidaNombre
 import com.example.somosmasapp.databinding.SignupBinding
 
 class SignUp : AppCompatActivity() {
@@ -29,10 +30,11 @@ class SignUp : AppCompatActivity() {
         binding.signup.setOnClickListener {
             onRegisterButtonClicked()
         }
-        val Watcher = CorreoWatcher(binding.textInputEmail,"Correo")
+        val Watcher = CorreoWatcher(binding.textInputEmail)
         binding.textInputEmail.addTextChangedListener(Watcher)
-        val Watcher2 = CorreoWatcher(binding.textInputName,"Nombre")
+        val Watcher2 = ValidaNombre(binding.textInputName,)
         binding.textInputName.addTextChangedListener(Watcher2)
+        
     }
 
     fun onRegisterButtonClicked() {
