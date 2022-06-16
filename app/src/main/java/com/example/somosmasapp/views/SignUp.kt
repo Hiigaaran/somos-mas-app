@@ -1,6 +1,7 @@
 package com.example.somosmasapp.views
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.somosmasapp.R
 import com.example.somosmasapp.data.dto.Register
+import com.example.somosmasapp.data.util.CorreoWatcher
 import com.example.somosmasapp.databinding.SignupBinding
 
 class SignUp : AppCompatActivity() {
@@ -23,10 +25,14 @@ class SignUp : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        binding.signup.setBackgroundColor(Color.GRAY)
         binding.signup.setOnClickListener {
             onRegisterButtonClicked()
         }
+        val Watcher = CorreoWatcher(binding.textInputEmail,"Correo")
+        binding.textInputEmail.addTextChangedListener(Watcher)
+        val Watcher2 = CorreoWatcher(binding.textInputName,"Nombre")
+        binding.textInputName.addTextChangedListener(Watcher2)
     }
 
     fun onRegisterButtonClicked() {
