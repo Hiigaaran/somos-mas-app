@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/signup.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/layout/signup_dialog.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/window_loginerror.xml" value="0.335" />
       </map>
     </option>
   </component>

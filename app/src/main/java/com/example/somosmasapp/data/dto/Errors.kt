@@ -7,7 +7,8 @@ package com.example.somosmasapp.data.dto
  * 2. Register
  */
 data class Errors(
-    val name: Array<String>?,
-    val email: Array<String>?,
-    val password: Array<String>?
+    val error: String?
+    //val name: Array<String>?,
+    //val email: Array<String>?,
+    //val password: Array<String>?
 )
