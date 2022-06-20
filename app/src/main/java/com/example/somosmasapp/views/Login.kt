@@ -29,7 +29,7 @@ class Login : AppCompatActivity() {
         binding = WindowLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sharePref = this?.getSharedPreferences(R.string.preference_file_key.toString(), MODE_PRIVATE)
+        val sharePref = this.getSharedPreferences(this.getString(R.string.preference_file_key), MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharePref.edit()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -75,7 +75,8 @@ class Login : AppCompatActivity() {
     fun showErrorDialog(){
         val alertDialog = AlertDialog.Builder(this)
         val errDialog = layoutInflater.inflate(R.layout.window_loginerror, null)
-        //val textView = findViewById<TextView>(R.id.LoginErrorMsg)
+        val textView = errDialog.findViewById<TextView>(R.id.LoginErrorMsg)
+        textView.text = viewModel.error.value
         alertDialog.setView(errDialog)
         alertDialog.create().show()
 

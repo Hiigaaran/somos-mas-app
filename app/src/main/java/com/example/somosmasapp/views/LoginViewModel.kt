@@ -9,7 +9,8 @@ import com.example.somosmasapp.data.dto.Login
 
 class LoginViewModel(private val repository: OngApiRepository): ViewModel() {
     val success = MutableLiveData<Boolean>(null)
-    val error = MutableLiveData<Errors?>(null)
+    val error = MutableLiveData<String>(null)
+    val errors = MutableLiveData<Errors?>(null)
     val message = MutableLiveData<String>(null)
     val user = MutableLiveData<User>(null)
     val token = MutableLiveData<String>(null)
@@ -28,14 +29,13 @@ class LoginViewModel(private val repository: OngApiRepository): ViewModel() {
                     user.value = response.data.user
                     token.value = response.data.token
                 }
+                error.value = response.error
                 success.value = response.success
                 message.value = response.message
-                error.value = response.errors
-                println("ERROR " + error.value)
             }
 
             override fun onError(repositoryError: RepositoryError) {
-                error.value = repositoryError.errors
+                errors.value = repositoryError.errors
             }
         })
     }

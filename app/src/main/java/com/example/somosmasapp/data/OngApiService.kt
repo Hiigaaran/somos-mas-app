@@ -15,7 +15,7 @@ interface OngApiService {
     @POST("/api/register")
     fun doRegister(@Body body: Register): Call<RepositoryResponse<UserRegister>>
 
-    @POST("/api/login")
+    @POST("/api/logina")
     fun doLogin(@Body body: Login): Call<RepositoryResponse<UserRegister>>
 
 }

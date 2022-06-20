@@ -4,5 +4,6 @@ data class RepositoryResponse<T>(
     val success: Boolean,
     val data: T,
     val message: String?,
-    val errors: Errors?
+    val errors: Errors?,
+    val error: String
 )
