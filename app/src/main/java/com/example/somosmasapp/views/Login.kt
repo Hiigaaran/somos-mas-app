@@ -11,7 +11,13 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import com.example.somosmasapp.data.dto.Login
 import com.example.somosmasapp.R
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.core.util.PatternsCompat
+import androidx.core.widget.addTextChangedListener
+import androidx.lifecycle.ViewModel
 import com.example.somosmasapp.databinding.WindowLoginBinding
+import java.util.regex.Pattern
 
 
 class Login : AppCompatActivity() {
@@ -41,6 +47,14 @@ class Login : AppCompatActivity() {
         binding.textViewOlvidarlogin.setOnClickListener{
             val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
+        binding.buttonEntrarlogin.isEnabled = false
+
+
+        binding.editEmaillogin.addTextChangedListener {
+            viewModel.check(binding.editEmaillogin.text.toString(),binding.editPasswordlogin.text.toString())
+        }
+        binding.editPasswordlogin.addTextChangedListener{
+            viewModel.check(binding.editEmaillogin.text.toString(),binding.editPasswordlogin.text.toString())
         }
 
 
@@ -87,5 +101,10 @@ class Login : AppCompatActivity() {
             }
             startActivity(intent)
         }
+
+        viewModel.blockButton.observe(this){ value->
+            binding.buttonEntrarlogin.isEnabled = !value
+        }
+
     }
 }
