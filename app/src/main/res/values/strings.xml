@@ -9,4 +9,6 @@
     <string name="passwordconfirm">Repite la contraseña</string>
     <string name="signup_dialog_message">User was succesfully register</string>
     <string name="ok_btn_placeholder_text">OK</string>
+    <string name="loginOk">Inicio sesion exitoso</string>
+    <string name="preference_file_key">com.example.somosmasapp</string>
 </resources>
