@@ -11,13 +11,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import com.example.somosmasapp.data.dto.Login
 import com.example.somosmasapp.R
-import android.widget.Toast
-import androidx.activity.viewModels
-import androidx.core.util.PatternsCompat
 import androidx.core.widget.addTextChangedListener
-import androidx.lifecycle.ViewModel
 import com.example.somosmasapp.databinding.WindowLoginBinding
-import java.util.regex.Pattern
 
 
 class Login : AppCompatActivity() {
@@ -35,32 +30,41 @@ class Login : AppCompatActivity() {
         binding = WindowLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sharePref = this.getSharedPreferences(this.getString(R.string.preference_file_key), MODE_PRIVATE)
+        val sharePref =
+            this.getSharedPreferences(this.getString(R.string.preference_file_key), MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharePref.edit()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.buttonEntrarlogin.setOnClickListener{
+        binding.editEmaillogin.addTextChangedListener {
+            viewModel.check(
+                binding.editEmaillogin.text.toString(),
+                binding.editPasswordlogin.text.toString()
+            )
+        }
+        binding.editPasswordlogin.addTextChangedListener {
+            viewModel.check(
+                binding.editEmaillogin.text.toString(),
+                binding.editPasswordlogin.text.toString()
+            )
+        }
+
+        binding.buttonEntrarlogin.setOnClickListener {
             onLoginButtonClicked(editor)
         }
 
-        binding.textViewOlvidarlogin.setOnClickListener{
+        binding.textViewOlvidarlogin.setOnClickListener {
             val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
-        binding.buttonEntrarlogin.isEnabled = false
-
-
-        binding.editEmaillogin.addTextChangedListener {
-            viewModel.check(binding.editEmaillogin.text.toString(),binding.editPasswordlogin.text.toString())
-        }
-        binding.editPasswordlogin.addTextChangedListener{
-            viewModel.check(binding.editEmaillogin.text.toString(),binding.editPasswordlogin.text.toString())
+            binding.buttonEntrarlogin.isEnabled = false
         }
 
-
+        viewModel.blockButton.observe(this){ value->
+            binding.buttonEntrarlogin.isEnabled = !value
+        }
     }
 
-    fun onLoginButtonClicked(editor: SharedPreferences.Editor){
+    private fun onLoginButtonClicked(editor: SharedPreferences.Editor){
         val login = Login(
             this.binding.editEmaillogin.text.toString(),
             this.binding.editPasswordlogin.text.toString()
@@ -79,18 +83,18 @@ class Login : AppCompatActivity() {
         }
     }
 
-    fun saveUser(editor : SharedPreferences.Editor){
+    private fun saveUser(editor : SharedPreferences.Editor){
         editor.putString("user",viewModel.user.value.toString())
         editor.putString("token",viewModel.token.value.toString())
         editor.apply()
         Toast.makeText(this, "Login OK", Toast.LENGTH_LONG).show()
     }
 
-    fun showErrorDialog(){
+    private fun showErrorDialog(){
         val alertDialog = AlertDialog.Builder(this)
         val errDialog = layoutInflater.inflate(R.layout.window_loginerror, null)
         val textView = errDialog.findViewById<TextView>(R.id.LoginErrorMsg)
-        textView.text = "Login Fallido. Intente nuevamente."
+        textView.setText("Login Failed. Try again.")
         alertDialog.setView(errDialog)
         alertDialog.create().show()
 
@@ -101,10 +105,5 @@ class Login : AppCompatActivity() {
             }
             startActivity(intent)
         }
-
-        viewModel.blockButton.observe(this){ value->
-            binding.buttonEntrarlogin.isEnabled = !value
-        }
-
     }
 }

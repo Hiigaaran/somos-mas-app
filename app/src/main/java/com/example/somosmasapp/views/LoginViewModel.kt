@@ -1,13 +1,17 @@
 package com.example.somosmasapp.views
 
+import android.widget.Toast
+import androidx.core.util.PatternsCompat
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import java.util.regex.Pattern
 import com.example.somosmasapp.data.OngApiRepository
 import com.example.somosmasapp.data.ResponseListener
 import com.example.somosmasapp.data.dto.*
 import com.example.somosmasapp.data.dto.Login
 
 class LoginViewModel(private val repository: OngApiRepository): ViewModel() {
+    val blockButton = MutableLiveData<Boolean>(false)
     val success = MutableLiveData<Boolean>(null)
     val error = MutableLiveData<String>(null)
     val errors = MutableLiveData<Errors?>(null)
@@ -15,6 +19,27 @@ class LoginViewModel(private val repository: OngApiRepository): ViewModel() {
     val user = MutableLiveData<User>(null)
     val token = MutableLiveData<String>(null)
 
+    private fun checkPassword(pass:String):Boolean{
+        val passwordRegex =  Pattern.compile(
+            "^\\w\\w\\w\\w+$"
+        )
+
+        return if(pass.isNullOrBlank()) {
+            false
+        } else passwordRegex.matcher(pass).matches()
+    }
+
+   private fun checkEmail(email:String):Boolean{
+        return if(email.isNullOrBlank()){
+            false
+        } else PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()
+    }
+
+    fun check(email: String,pass: String){
+        val resultado = checkEmail(email) && checkPassword(pass)
+        blockButton.value = !resultado
+
+    }
 
     fun doLogin(body: Login){
         success.value = null
