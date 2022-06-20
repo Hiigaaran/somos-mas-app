@@ -58,6 +58,7 @@ class SignUp : AppCompatActivity() {
         //observador de variable para cuando cambia el valor
         viewModelValidador.validadorBoton.observe(this){value->
             binding.signup.isEnabled = value
+            if(value){binding.signup.setBackgroundColor(Color.RED)}
         }
     //passwordconfirm
 
