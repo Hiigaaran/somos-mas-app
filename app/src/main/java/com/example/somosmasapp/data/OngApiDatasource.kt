@@ -87,7 +87,6 @@ class OngApiDatasource {
                         null
                     )
                 )
-                println("ERROR!!!!!")
             }
 
         })

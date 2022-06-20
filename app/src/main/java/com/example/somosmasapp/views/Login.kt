@@ -76,7 +76,7 @@ class Login : AppCompatActivity() {
         val alertDialog = AlertDialog.Builder(this)
         val errDialog = layoutInflater.inflate(R.layout.window_loginerror, null)
         val textView = errDialog.findViewById<TextView>(R.id.LoginErrorMsg)
-        textView.text = viewModel.error.value
+        textView.text = "Login Fallido. Intente nuevamente."
         alertDialog.setView(errDialog)
         alertDialog.create().show()
 
