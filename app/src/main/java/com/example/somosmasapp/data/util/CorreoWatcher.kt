@@ -5,9 +5,9 @@ import android.text.TextWatcher
 import android.widget.EditText
 import java.util.regex.Pattern
 
-class CorreoWatcher(editCorreo : EditText) : TextWatcher {
+class CorreoWatcher(private val editCorreo : EditText, private val listener : (Email : String,isValid : Boolean)->Unit) : TextWatcher {
         //val textView = findViewById<View>(R.id.titulo1) as TextView
-        val editCorreo = editCorreo
+
 
 
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -18,11 +18,15 @@ class CorreoWatcher(editCorreo : EditText) : TextWatcher {
 
         }
 
-        override fun afterTextChanged(s: Editable?) {
+        override fun afterTextChanged(s: Editable?){
             val correoIngresado = s.toString()
             if(!validarEmail(correoIngresado)){
                                 editCorreo.setError("Debe ingresar un Correo valido")
+                                listener.invoke(correoIngresado,false)
                                 }
+            else{
+                listener.invoke(correoIngresado,true)
+            }
         }
 
 

@@ -4,8 +4,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.widget.EditText
 
-class ValidaNombre(NombreUsuario : EditText) : TextWatcher {
-    val usuario = NombreUsuario
+class ValidaNombre(private val NombreUsuario : EditText, private val listener : (NomUser : String,isValidNom : Boolean)->Unit) : TextWatcher {
+    //val usuario = NombreUsuario
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
     }
@@ -17,8 +17,14 @@ class ValidaNombre(NombreUsuario : EditText) : TextWatcher {
     override fun afterTextChanged(s: Editable?) {
         val nombreUsuario = s.toString()
         if(nombreUsuario.length==0){
-                usuario.setError("Debe ingresar un Nombre valido")
-                }
+            NombreUsuario.setError("Debe ingresar un Nombre valido")
+            listener.invoke(nombreUsuario.toString(),false)
+        }
+
+        else{
+            listener.invoke(nombreUsuario.toString(),true)
+        }
+
     }
 
 }

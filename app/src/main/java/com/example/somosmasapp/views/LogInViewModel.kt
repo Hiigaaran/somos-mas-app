@@ -18,7 +18,7 @@ class LogInViewModel:ViewModel(){
         } else passwordRegex.matcher(pass).matches()
     }
 
-   private fun checkEmail(email:String):Boolean{
+    private fun checkEmail(email:String):Boolean{
         return if(email.isNullOrBlank()){
             false
         } else PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()
