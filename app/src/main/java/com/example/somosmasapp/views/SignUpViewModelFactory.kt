@@ -6,9 +6,10 @@ import com.example.somosmasapp.data.OngApiDatasource
 import com.example.somosmasapp.data.OngApiRepository
 
 class SignUpViewModelFactory: ViewModelProvider.Factory {
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         val ongApiDatasource = OngApiDatasource()
         val ongApiRepository = OngApiRepository(ongApiDatasource)
         return SignUpViewModel(ongApiRepository) as T
     }
+
 }
