@@ -6,6 +6,7 @@ import com.example.somosmasapp.R
 import android.content.Intent
 import android.os.Handler
 import android.view.WindowManager
+import android.widget.Toast
 
 @Suppress("DEPRECATION")
 class Splash : AppCompatActivity() {
@@ -24,10 +25,18 @@ class Splash : AppCompatActivity() {
         // we used the postDelayed(Runnable, time) method
         // to send a message with a delayed time.
         Handler().postDelayed({
+            val text = "Timer has finished!"
+            val duration = Toast.LENGTH_SHORT
+            val toast = Toast.makeText(applicationContext, text, duration)
+
             val intent = Intent(this, Login::class.java)
             startActivity(intent)
-            finish()
-        }, 3000) // 3000 is the delayed time in milliseconds.
+            //finish()
+            toast.show()
+        }, 5000) // 5000 is the delayed time in milliseconds.
+
+
+
     }
     }
 
