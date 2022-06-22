@@ -76,6 +76,9 @@ class Login : AppCompatActivity() {
             if (null != value) {
                 if (value) {
                     saveUser(editor)
+                    this.finish()
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
                 } else {
                     showErrorDialog()
                 }
@@ -87,14 +90,14 @@ class Login : AppCompatActivity() {
         editor.putString("user",viewModel.user.value.toString())
         editor.putString("token",viewModel.token.value.toString())
         editor.apply()
-        Toast.makeText(this, "Login OK", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, getString(R.string.loginOk), Toast.LENGTH_LONG).show()
     }
 
     private fun showErrorDialog(){
         val alertDialog = AlertDialog.Builder(this)
         val errDialog = layoutInflater.inflate(R.layout.window_loginerror, null)
         val textView = errDialog.findViewById<TextView>(R.id.LoginErrorMsg)
-        textView.setText("Login Failed. Try again.")
+        textView.setText(getString(R.string.loginError))
         alertDialog.setView(errDialog)
         alertDialog.create().show()
 
@@ -103,6 +106,7 @@ class Login : AppCompatActivity() {
             val intent = Intent(this, com.example.somosmasapp.views.Login::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP
             }
+            this.finish()
             startActivity(intent)
         }
     }
