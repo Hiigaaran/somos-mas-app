@@ -13,14 +13,14 @@ import com.example.somosmasapp.data.dto.RepositoryResponse
 class NewsViewModel(private val repository: OngApiRepository) : ViewModel() {
 
     val success = MutableLiveData<Boolean>(false)
-    val data = MutableLiveData<List<News>>(null)
+    val data = MutableLiveData<ArrayList<News>>(null)
 
     fun getNews() {
         success.value = false
         data.value = null
 
-        repository.getNews(object: ResponseListener<List<News>> {
-            override fun onResponse(response: RepositoryResponse<List<News>>) {
+        repository.getNews(object: ResponseListener<ArrayList<News>> {
+            override fun onResponse(response: RepositoryResponse<ArrayList<News>>) {
                 if(null != response && response.success) {
                     success.value = response.success
                     data.value = response.data

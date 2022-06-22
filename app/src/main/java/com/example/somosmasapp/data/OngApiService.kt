@@ -16,6 +16,6 @@ interface OngApiService {
     fun doLogin(@Body body: Login): Call<RepositoryResponse<UserRegister>>
 
     @GET("/api/news")
-    fun getNews(): Call<RepositoryResponse<List<News>>>
+    fun getNews(): Call<RepositoryResponse<ArrayList<News>>>
 
 }

@@ -10,6 +10,6 @@ class NewsViewModelFactory: ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         val ongApiDatasource = OngApiDatasource()
         val ongApiRepository = OngApiRepository(ongApiDatasource)
-        return SignUpViewModel(ongApiRepository) as T
+        return NewsViewModel(ongApiRepository) as T
     }
 }

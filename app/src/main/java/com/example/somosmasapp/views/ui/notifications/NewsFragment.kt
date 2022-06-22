@@ -24,7 +24,7 @@ class NewsFragment : Fragment() {
             NewsViewModelFactory()
         }
     )
-    private lateinit var newsList: ArrayList<News>
+    private var newsList = ArrayList<News>()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -59,7 +59,9 @@ class NewsFragment : Fragment() {
                 value ->
             if (null != value) {
                 if (value) {
-                    newsList = viewModel.data.value as ArrayList<News>
+                    viewModel.data.value?.let {
+                        newsList = it
+                    }
                 }
             }
         }

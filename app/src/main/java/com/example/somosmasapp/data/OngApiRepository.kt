@@ -14,7 +14,7 @@ class OngApiRepository(private val ongApiDatasource: OngApiDatasource) {
         this.ongApiDatasource.doLogin(body, listener)
     }
 
-    fun getNews(listener: ResponseListener<List<News>>) {
+    fun getNews(listener: ResponseListener<ArrayList<News>>) {
         this.ongApiDatasource.getNews(listener)
     }
 }
