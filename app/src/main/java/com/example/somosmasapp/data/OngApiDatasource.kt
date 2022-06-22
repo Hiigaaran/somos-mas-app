@@ -91,4 +91,37 @@ class OngApiDatasource {
 
         })
     }
+
+    fun getNews(listener: ResponseListener<List<News>>) {
+        val service = RetrofitService.instance.create(OngApiService::class.java).getNews()
+
+        service.enqueue(object: Callback<RepositoryResponse<List<News>>> {
+            override fun onResponse(
+                call: Call<RepositoryResponse<List<News>>>,
+                response: Response<RepositoryResponse<List<News>>>
+            ) {
+                val callResponse = response.body()
+                if(response.isSuccessful && null != callResponse) {
+                    listener.onResponse(callResponse)
+                } else {
+                    listener.onError(
+                        RepositoryError(
+                            callResponse?.message ?: run { "Unexpected Error"},
+                            callResponse?.errors
+                        )
+                    )
+                }
+            }
+
+            override fun onFailure(call: Call<RepositoryResponse<List<News>>>, t: Throwable) {
+                listener.onError(
+                    RepositoryError(
+                        "Unexpected Error",
+                        null
+                    )
+                )
+            }
+
+        })
+    }
 }
