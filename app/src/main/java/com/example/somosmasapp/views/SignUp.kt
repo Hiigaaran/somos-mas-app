@@ -3,7 +3,6 @@ package com.example.somosmasapp.views
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -19,7 +18,7 @@ import com.example.somosmasapp.databinding.SignupBinding
 
 class SignUp : AppCompatActivity() {
     private lateinit var binding: SignupBinding
-    private val viewModelValidador: SignUpValidadorViewModel by viewModels()
+    private val viewModelValidator: SignUpValidadorViewModel by viewModels()
     private val viewModel: SignUpViewModel by viewModels(
         factoryProducer = { SignUpViewModelFactory() }
     )
@@ -33,39 +32,42 @@ class SignUp : AppCompatActivity() {
         binding.signup.setOnClickListener {
             onRegisterButtonClicked()
         }
-        val Watcher = CorreoWatcher(binding.textInputEmail){Email,isValid->
-            viewModelValidador.actualizarEmail(isValid)
+        val watcher = CorreoWatcher(binding.textInputEmail){ _, isValid->
+            viewModelValidator.actualizarEmail(isValid)
         }
-        binding.textInputEmail.addTextChangedListener(Watcher)
+        binding.textInputEmail.addTextChangedListener(watcher)
 
 
-        val Watcher2 = ValidaNombre(binding.textInputName) {Email,isValid->
-            viewModelValidador.actualizarNombre(isValid)
+        val watcher2 = ValidaNombre(binding.textInputName) { _, isValid->
+            viewModelValidator.actualizarNombre(isValid)
         }
-        binding.textInputName.addTextChangedListener(Watcher2)
+        binding.textInputName.addTextChangedListener(watcher2)
 
-        val Watcher3 = ValidaReqPassword(binding.textInputPassword){Email,isValid->
-            viewModelValidador.actualizarPass1(isValid)
+        val watcher3 = ValidaReqPassword(binding.textInputPassword){ _, isValid->
+            viewModelValidator.actualizarPass1(isValid)
         }
-        binding.textInputPassword.addTextChangedListener(Watcher3)
+        binding.textInputPassword.addTextChangedListener(watcher3)
 
 
-        val Watcher4 = ValidaPass(binding.textInputPassword,binding.textInputReEntryPassword){isValid->
-            viewModelValidador.actualizarPass2(isValid)
+        val watcher4 = ValidaPass(binding.textInputPassword,binding.textInputReEntryPassword){isValid->
+            viewModelValidator.actualizarPass2(isValid)
         }
-        binding.textInputReEntryPassword.addTextChangedListener(Watcher4)
+        binding.textInputReEntryPassword.addTextChangedListener(watcher4)
 
         //observador de variable para cuando cambia el valor
-        viewModelValidador.validadorBoton.observe(this){value->
+        viewModelValidator.validadorBoton.observe(this){ value->
             binding.signup.isEnabled = value
             if(value){binding.signup.setBackgroundColor(Color.RED)}
+            else{
+                binding.signup.setBackgroundColor(Color.GRAY)
+            }
         }
     //passwordconfirm
 
     }
 
-    fun onRegisterButtonClicked() {
-        var register = Register(
+    private fun onRegisterButtonClicked() {
+        val register = Register(
             binding.textInputName.text.toString(),
             binding.textInputEmail.text.toString(),
             binding.textInputPassword.text.toString()
@@ -84,7 +86,7 @@ class SignUp : AppCompatActivity() {
         }
     }
 
-    fun onSuccessfullRegister() {
+    private fun onSuccessfullRegister() {
         val alertDialog = AlertDialog.Builder(this)
         val okDialog = layoutInflater.inflate(R.layout.signup_dialog, null)
         alertDialog.setView(okDialog)
@@ -96,11 +98,12 @@ class SignUp : AppCompatActivity() {
         }
     }
 
-    fun onDialogOkBtnClicked() {
-        val intent = Intent(this, Login::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-        }
-        startActivity(intent)
+    private fun onDialogOkBtnClicked() {
+        /*val intent = Intent(this, Lo::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP
+        }*/
+        this.finish()
+        //startActivity(intent)
     }
 
     override fun onSupportNavigateUp(): Boolean {

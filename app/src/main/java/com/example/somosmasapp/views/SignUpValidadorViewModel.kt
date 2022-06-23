@@ -17,27 +17,27 @@ class SignUpValidadorViewModel : ViewModel(){
 
     }
 
-    fun actualizarEmail(email : Boolean){
+    fun actualizarEmail(isValueEmail : Boolean){
 
-        emailValidator = true
+        emailValidator = isValueEmail
         compararValidadores()
 
     }
-    fun actualizarNombre(email : Boolean){
+    fun actualizarNombre(isValueName : Boolean){
 
-        nombreValidator = true
+        nombreValidator = isValueName
         compararValidadores()
 
     }
-    fun actualizarPass1(email : Boolean){
+    fun actualizarPass1(isValuePass : Boolean){
 
-        passwordValidator = true
+        passwordValidator = isValuePass
         compararValidadores()
 
     }
-    fun actualizarPass2(email : Boolean){
+    fun actualizarPass2(isValuePass2 : Boolean){
 
-        password2Validator = true
+        password2Validator = isValuePass2
         compararValidadores()
 
     }

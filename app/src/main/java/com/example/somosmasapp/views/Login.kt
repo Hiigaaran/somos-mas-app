@@ -30,11 +30,11 @@ class Login : AppCompatActivity() {
         binding = WindowLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val sharePref =
             this.getSharedPreferences(this.getString(R.string.preference_file_key), MODE_PRIVATE)
         val editor: SharedPreferences.Editor = sharePref.edit()
-
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.editEmaillogin.addTextChangedListener {
             viewModel.check(
