@@ -6,17 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".views.ui.home.HomeFragment">
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/top_logo_somos_mas"
+        android:contentDescription="@string/todo" />
+
+    <ImageView
+        android:id="@+id/imagenHome"
+        android:layout_width="wrap_content"
+        android:layout_height="212dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/imagen_home"/>
+
+    <TextView
+        android:id="@+id/hola_bienve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/hola_bienve"
+        android:textAppearance="@style/hola_bienve"
+        app:layout_constraintStart_toStartOf="@id/imagenHome"
+        app:layout_constraintTop_toBottomOf="@+id/imagenHome"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/lorem_ipsum"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical"
+        android:text="@string/texto_somos_más"
+        android:textAppearance="@style/lorem_ipsum"
+        app:layout_constraintStart_toStartOf="@id/imagenHome"
+        app:layout_constraintTop_toBottomOf="@+id/hola_bienve"
+        app:layout_constraintEnd_toEndOf="@id/imagenHome"
+        android:layout_marginTop="8dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
