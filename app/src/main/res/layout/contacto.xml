@@ -15,37 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_somos_mas_sn" />
+        app:srcCompat="@drawable/top_logo_somos_mas" />
 
-
-    <TextView
-        android:id="@+id/contribuir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="544dp"
-        android:fontFamily="@font/poppins"
-        android:letterSpacing="-0.033"
-        android:text="@string/constribuir"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/donar"
-        android:layout_width="100dp"
-        android:layout_height="51dp"
-        android:layout_marginHorizontal="25dp"
-        android:backgroundTint="@color/red"
-        android:fontFamily="@font/poppins_semibold"
-        android:letterSpacing="-0.033"
-        android:text="@string/donar"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="206dp"
-        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/contacto"
@@ -58,10 +29,10 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintHorizontal_bias="0.312"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.943" />
+        app:layout_constraintVertical_bias="0.624" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/name"
