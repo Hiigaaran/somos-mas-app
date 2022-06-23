@@ -42,19 +42,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_semibold"
-        android:text="TextView"
+        android:text="Texto Laaaaargo"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/imageSlide"
-        tools:layout_editor_absoluteY="322dp" />
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="@+id/imageSlider"
+        app:layout_constraintTop_toBottomOf="@+id/imageSlider" />
 
     <TextView
         android:id="@+id/txtTextoNovedad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
-        android:text="TextView"
+        android:padding="8dp"
+        android:text="Texto maaaaas laaaaaaargo"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/txtNombreNovedad"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombreNovedad" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombreNovedad"
+        app:layout_constraintVertical_bias="0.008" />
 </androidx.constraintlayout.widget.ConstraintLayout>

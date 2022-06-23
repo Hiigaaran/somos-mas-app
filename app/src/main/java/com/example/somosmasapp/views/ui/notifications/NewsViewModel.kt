@@ -22,8 +22,8 @@ class NewsViewModel(private val repository: OngApiRepository) : ViewModel() {
         repository.getNews(object: ResponseListener<ArrayList<News>> {
             override fun onResponse(response: RepositoryResponse<ArrayList<News>>) {
                 if(null != response && response.success) {
-                    success.value = response.success
                     data.value = response.data
+                    success.value = response.success
                 }
             }
 

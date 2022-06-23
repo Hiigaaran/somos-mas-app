@@ -13,7 +13,7 @@ data class News(
     @SerializedName("content")
     val content: String,
     @SerializedName("image")
-    val image: String,
+    val image: String?,
     @SerializedName("user_id")
     val userId: Int,
     @SerializedName("category_id")
