@@ -15,6 +15,9 @@ class Splash : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.splash)
 
+        val sharePref =
+            this.getSharedPreferences(this.getString(R.string.preference_file_key), MODE_PRIVATE)
+        val token = sharePref.getString("token", "")
         // This is used to hide the status bar and make
         // the splash screen as a full screen activity.
         window.setFlags(
@@ -29,8 +32,13 @@ class Splash : AppCompatActivity() {
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(applicationContext, text, duration)
 
-            val intent = Intent(this, Login::class.java)
-            startActivity(intent)
+            if(token.equals("")){
+                val intent = Intent(this, Login::class.java)
+                startActivity(intent)
+            }else {
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+            }
             toast.show()
             this.finish()
         }, 5000) // 5000 is the delayed time in milliseconds.
