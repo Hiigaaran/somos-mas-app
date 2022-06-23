@@ -16,7 +16,7 @@ class ValidaNombre(private val NombreUsuario : EditText, private val listener : 
 
     override fun afterTextChanged(s: Editable?) {
         val nombreUsuario = s.toString()
-        if(nombreUsuario.length==0){
+        if(nombreUsuario.isEmpty()){
             NombreUsuario.setError("Debe ingresar un Nombre valido")
             listener.invoke(nombreUsuario.toString(),false)
         }

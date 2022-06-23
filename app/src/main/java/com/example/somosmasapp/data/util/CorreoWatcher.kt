@@ -30,7 +30,7 @@ class CorreoWatcher(private val editCorreo : EditText, private val listener : (E
         }
 
 
-    fun validarEmail(email : String ) : Boolean {
+    private fun validarEmail(email : String ) : Boolean {
 
         var patroncorreo : Pattern=Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
 
