@@ -1,9 +1,6 @@
 package com.example.somosmasapp.data
 
-import com.example.somosmasapp.data.dto.Login
-import com.example.somosmasapp.data.dto.Register
-import com.example.somosmasapp.data.dto.RepositoryResponse
-import com.example.somosmasapp.data.dto.UserRegister
+import com.example.somosmasapp.data.dto.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -17,5 +14,8 @@ interface OngApiService {
 
     @POST("/api/login")
     fun doLogin(@Body body: Login): Call<RepositoryResponse<UserRegister>>
+
+    @GET("/api/news")
+    fun getNews(): Call<RepositoryResponse<ArrayList<News>>>
 
 }
