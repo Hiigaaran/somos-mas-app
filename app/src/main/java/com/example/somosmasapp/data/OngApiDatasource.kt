@@ -21,12 +21,14 @@ class OngApiDatasource {
                 val callResponse = response.body()
                 if(response.isSuccessful && null != callResponse) {
                     listener.onResponse(
-                        RepositoryResponse(
+                   /*     RepositoryResponse(
                             callResponse.success,
                             callResponse.data,
                             callResponse.message,
-                            null)
+                            null)*/
+                    callResponse
                     )
+
                 } else {
                     listener.onError(
                         RepositoryError(
@@ -60,12 +62,13 @@ class OngApiDatasource {
                 val callResponse = response.body()
                 if (response.isSuccessful && null != callResponse) {
                     listener.onResponse(
-                        RepositoryResponse(
+               /*         RepositoryResponse(
                             callResponse.success,
                             callResponse.data,
                             callResponse.message,
-                            null
-                        )
+                            callResponse.errors
+                        )*/
+                    callResponse
                     )
                 } else {
                     listener.onError(

@@ -1,6 +1,7 @@
 package com.example.somosmasapp.views
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -10,10 +11,15 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.somosmasapp.R
 import com.example.somosmasapp.data.dto.Register
+import com.example.somosmasapp.data.util.CorreoWatcher
+import com.example.somosmasapp.data.util.ValidaNombre
+import com.example.somosmasapp.data.util.ValidaPass
+import com.example.somosmasapp.data.util.ValidaReqPassword
 import com.example.somosmasapp.databinding.SignupBinding
 
 class SignUp : AppCompatActivity() {
     private lateinit var binding: SignupBinding
+    private val viewModelValidador: SignUpValidadorViewModel by viewModels()
     private val viewModel: SignUpViewModel by viewModels(
         factoryProducer = { SignUpViewModelFactory() }
     )
@@ -23,10 +29,39 @@ class SignUp : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+        binding.signup.setBackgroundColor(Color.GRAY)
         binding.signup.setOnClickListener {
             onRegisterButtonClicked()
         }
+        val Watcher = CorreoWatcher(binding.textInputEmail){Email,isValid->
+            viewModelValidador.actualizarEmail(isValid)
+        }
+        binding.textInputEmail.addTextChangedListener(Watcher)
+
+
+        val Watcher2 = ValidaNombre(binding.textInputName) {Email,isValid->
+            viewModelValidador.actualizarNombre(isValid)
+        }
+        binding.textInputName.addTextChangedListener(Watcher2)
+
+        val Watcher3 = ValidaReqPassword(binding.textInputPassword){Email,isValid->
+            viewModelValidador.actualizarPass1(isValid)
+        }
+        binding.textInputPassword.addTextChangedListener(Watcher3)
+
+
+        val Watcher4 = ValidaPass(binding.textInputPassword,binding.textInputReEntryPassword){isValid->
+            viewModelValidador.actualizarPass2(isValid)
+        }
+        binding.textInputReEntryPassword.addTextChangedListener(Watcher4)
+
+        //observador de variable para cuando cambia el valor
+        viewModelValidador.validadorBoton.observe(this){value->
+            binding.signup.isEnabled = value
+            if(value){binding.signup.setBackgroundColor(Color.RED)}
+        }
+    //passwordconfirm
+
     }
 
     fun onRegisterButtonClicked() {
