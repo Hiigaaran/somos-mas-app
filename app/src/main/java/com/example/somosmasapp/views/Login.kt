@@ -99,15 +99,17 @@ class Login : AppCompatActivity() {
         val textView = errDialog.findViewById<TextView>(R.id.LoginErrorMsg)
         textView.setText(getString(R.string.loginError))
         alertDialog.setView(errDialog)
-        alertDialog.create().show()
+        val dialog = alertDialog.create()
+        dialog.show()
 
         val okButton: Button = errDialog.findViewById(R.id.okLoginBtn)
         okButton.setOnClickListener {
-            val intent = Intent(this, com.example.somosmasapp.views.Login::class.java).apply {
+            dialog.dismiss()
+            /*val intent = Intent(this, com.example.somosmasapp.views.Login::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP
-            }
-            this.finish()
-            startActivity(intent)
+            }*/
+            //this.finish()
+            //startActivity(intent)
         }
     }
 }
