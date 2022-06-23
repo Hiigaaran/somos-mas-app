@@ -81,6 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:inputType="textPassword"
             android:background="@drawable/rounded_corner"
             android:fontFamily="@font/poppins"
             android:textColorHint="@color/grey_text" />
@@ -104,6 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:inputType="textPassword"
             android:background="@drawable/rounded_corner"
             android:fontFamily="@font/poppins"
             android:textColorHint="@color/grey_text" />

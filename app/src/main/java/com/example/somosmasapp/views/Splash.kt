@@ -39,7 +39,7 @@ class Splash : AppCompatActivity() {
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
             }
-            toast.show()
+            //toast.show()
             this.finish()
         }, 5000) // 5000 is the delayed time in milliseconds.
 
