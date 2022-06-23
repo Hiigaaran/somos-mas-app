@@ -23,7 +23,7 @@ class SignUpViewModel(private val repository: OngApiRepository): ViewModel() {
         repository.doRegister(body, object: ResponseListener<UserRegister> {
             override fun onResponse(response: RepositoryResponse<UserRegister>) {
                 val responseRegister = response
-                if (null != responseRegister && responseRegister.success) {
+                if (null != responseRegister) {
                     success.value = response.success
                     message.value = response.message
                     user.value = response.data.user
@@ -34,6 +34,7 @@ class SignUpViewModel(private val repository: OngApiRepository): ViewModel() {
             override fun onError(repositoryError: RepositoryError) {
                 if(null != repositoryError) {
                     error.value = repositoryError.errors
+                    success.value = false
                 }
             }
 
