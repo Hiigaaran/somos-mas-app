@@ -64,6 +64,13 @@ class SignUp : AppCompatActivity() {
                 binding.signup.setBackgroundColor(Color.GRAY)
             }
         }
+
+        binding.signin.setOnClickListener {
+            val intent = Intent(this, Login::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            }
+            startActivity(intent)
+        }
     //passwordconfirm
 
     }
