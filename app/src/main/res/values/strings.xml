@@ -7,7 +7,7 @@
     <string name="email">Correo Electrónico</string>
     <string name="password">Contraseña</string>
     <string name="passwordconfirm">Repite la contraseña</string>
-    <string name="signup_dialog_message">User was succesfully register</string>
+    <string name="signup_dialog_message">Usuario registrado exitosamente</string>
     <string name="ok_btn_placeholder_text">OK</string>
     <string name="contactate">¡Contactate con nosotros!</string>
     <string name="constribuir">¿Quieres contribuir?</string>
@@ -16,7 +16,7 @@
     <string name="email_2">Email</string>
     <string name="mje">Mensaje</string>
     <string name="loginOk">Login OK</string>
-    <string name="loginError">Login Error</string>
+    <string name="loginError">Error, con estos datos no se puede iniciar sesión</string>
     <string name="preference_file_key">com.example.somosmasapp</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_home">Inicio</string>
