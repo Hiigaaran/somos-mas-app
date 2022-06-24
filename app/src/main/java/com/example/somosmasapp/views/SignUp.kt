@@ -43,7 +43,7 @@ class SignUp : AppCompatActivity() {
         }
         binding.textInputName.addTextChangedListener(watcher2)
 
-        val watcher3 = ValidaReqPassword(binding.textInputPassword){ _, isValid->
+        val watcher3 = ValidaReqPassword(binding.textInputPassword,binding.textInputReEntryPassword){ _, isValid->
             viewModelValidator.actualizarPass1(isValid)
         }
         binding.textInputPassword.addTextChangedListener(watcher3)
