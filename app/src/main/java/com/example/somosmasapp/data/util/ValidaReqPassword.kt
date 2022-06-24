@@ -18,7 +18,7 @@ class ValidaReqPassword (private val Password1 : EditText,private val Password2 
     override fun afterTextChanged(s: Editable?) {
         checkPass()
         if (!ValidaPassword(s.toString())) {
-            Password1.setError("No cumple con los requisitos de Password")
+            Password1.setError("Password debe tener minimo 4 caracteres")
             listener.invoke(Password1.text.toString(),false)
         }
         else{
