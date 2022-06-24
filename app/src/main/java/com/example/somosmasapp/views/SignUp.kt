@@ -27,6 +27,7 @@ class SignUp : AppCompatActivity() {
         binding = SignupBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.signup.isEnabled = true
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.signup.setBackgroundColor(Color.GRAY)
         binding.signup.setOnClickListener {
@@ -67,6 +68,7 @@ class SignUp : AppCompatActivity() {
     }
 
     private fun onRegisterButtonClicked() {
+        binding.signup.isEnabled = false
         val register = Register(
             binding.textInputName.text.toString(),
             binding.textInputEmail.text.toString(),
@@ -80,7 +82,8 @@ class SignUp : AppCompatActivity() {
                 if (value) {
                     onSuccessfullRegister()
                 } else {
-                    Toast.makeText(this, "Registro Fallido", Toast.LENGTH_LONG).show()
+                    //Toast.makeText(this, "Registro Fallido", Toast.LENGTH_LONG).show()
+                    binding.signup.isEnabled = true
                 }
             }
         }
@@ -102,6 +105,7 @@ class SignUp : AppCompatActivity() {
         /*val intent = Intent(this, Lo::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP
         }*/
+        binding.signup.isEnabled = true
         this.finish()
         //startActivity(intent)
     }
