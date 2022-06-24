@@ -12,7 +12,9 @@ import com.example.somosmasapp.data.dto.*
 class ContactViewModel (private val repository: OngApiRepository): ViewModel() {
 
     private val _blockButton = MutableLiveData<Boolean>(true)
+    private val _spinnerView = MutableLiveData<Boolean>(false)
     val blockButton: LiveData<Boolean> = _blockButton
+    val spinnerView: LiveData<Boolean> = _spinnerView
     val success = MutableLiveData<Boolean>(null)
     val data = MutableLiveData<Contact>(null)
     val error = MutableLiveData<String>(null)
@@ -42,16 +44,19 @@ class ContactViewModel (private val repository: OngApiRepository): ViewModel() {
         success.value = false
         data.value = null
 
+        _spinnerView.value = true
         repository.sendContact(body, object: ResponseListener<Contact> {
             override fun onResponse(response: RepositoryResponse<Contact>) {
                 if(null != response && response.success) {
                     data.value = response.data
+                    _spinnerView.value = false
                     success.value = response.success
                 }
             }
 
             override fun onError(repositoryError: RepositoryError) {
-                Toast.makeText(null, "No se pudo enviar mensaje.", Toast.LENGTH_LONG)
+                _spinnerView.value = false
+                Toast.makeText(null, "Ha ocurrido un error. Intente nuevamente mas tarde", Toast.LENGTH_LONG)
             }
 
         })
