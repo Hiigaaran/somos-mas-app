@@ -7,6 +7,7 @@
     <string name="email">Correo Electrónico</string>
     <string name="password">Contraseña</string>
     <string name="passwordconfirm">Repite la contraseña</string>
+    <string name="signup_dialog_error">Error no se pudo realizar el registro</string>
     <string name="signup_dialog_message">Usuario registrado exitosamente</string>
     <string name="ok_btn_placeholder_text">OK</string>
     <string name="contactate">¡Contactate con nosotros!</string>
