@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -80,7 +81,8 @@ class SignUp : AppCompatActivity() {
                 if (value) {
                     onSuccessfullRegister()
                 } else {
-                    Toast.makeText(this, "Registro Fallido", Toast.LENGTH_LONG).show()
+                    //Toast.makeText(this, "Registro Fallido", Toast.LENGTH_LONG).show().
+                    showErrorDialog()
                 }
             }
         }
@@ -111,4 +113,21 @@ class SignUp : AppCompatActivity() {
         return super.onSupportNavigateUp()
     }
 
+    private fun showErrorDialog(){
+        val alertDialog = AlertDialog.Builder(this)
+        val errDialog = layoutInflater.inflate(R.layout.signup_error_mensaje, null)
+        alertDialog.setView(errDialog)
+        val dialog = alertDialog.create()
+        dialog.show()
+
+        val okButton: Button = errDialog.findViewById(R.id.errorsignupBtn)
+        okButton.setOnClickListener {
+            dialog.dismiss()
+            /*val intent = Intent(this, com.example.somosmasapp.views.Login::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP
+            }*/
+            //this.finish()
+            //startActivity(intent)
+        }
+    }
 }
