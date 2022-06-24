@@ -29,6 +29,7 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.window_login)
         binding = WindowLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.buttonEntrarlogin.isEnabled = true
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
@@ -56,7 +57,6 @@ class Login : AppCompatActivity() {
         binding.textViewOlvidarlogin.setOnClickListener {
             val intent = Intent(this, SignUp::class.java)
             startActivity(intent)
-            binding.buttonEntrarlogin.isEnabled = false
         }
 
         viewModel.blockButton.observe(this){ value->
@@ -65,6 +65,7 @@ class Login : AppCompatActivity() {
     }
 
     private fun onLoginButtonClicked(editor: SharedPreferences.Editor){
+        binding.buttonEntrarlogin.isEnabled = false
         val login = Login(
             this.binding.editEmaillogin.text.toString(),
             this.binding.editPasswordlogin.text.toString()
@@ -79,6 +80,7 @@ class Login : AppCompatActivity() {
                     this.finish()
                     val intent = Intent(this, HomeActivity::class.java)
                     startActivity(intent)
+                    binding.buttonEntrarlogin.isEnabled = true
                 } else {
                     showErrorDialog()
                 }
@@ -105,6 +107,7 @@ class Login : AppCompatActivity() {
         val okButton: Button = errDialog.findViewById(R.id.okLoginBtn)
         okButton.setOnClickListener {
             dialog.dismiss()
+            binding.buttonEntrarlogin.isEnabled = true
             /*val intent = Intent(this, com.example.somosmasapp.views.Login::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP
             }*/
