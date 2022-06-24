@@ -2,21 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
 
-    <TextView
-        android:id="@+id/signupDialogMsg"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:gravity="center"
-        android:text="@string/signup_dialog_message" />
-
-    <Button
-        android:id="@+id/okSignupBtn"
+    >
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/red"
-        android:layout_marginHorizontal="64dp"
-        android:layout_marginVertical="8dp"
-        android:text="@string/ok_btn_placeholder_text" />
+        android:weightSum="2"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/signupDialogMsg"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center"
+            android:text="@string/signup_dialog_message" />
+
+        <Button
+            android:id="@+id/okSignupBtn"
+            android:layout_width="100dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:layout_marginHorizontal="64dp"
+            android:layout_marginVertical="8dp"
+            android:text="@string/ok_btn_placeholder_text" />
+    </LinearLayout>
+        
 </LinearLayout>
