@@ -18,4 +18,7 @@ interface OngApiService {
     @GET("/api/news")
     fun getNews(): Call<RepositoryResponse<ArrayList<News>>>
 
+    @POST("/api/contacts")
+    fun sendContact(@Body body: Contact): Call<RepositoryResponse<Contact>>
+
 }

@@ -5,19 +5,19 @@ import java.util.*
 
 data class Contact(
     @SerializedName("id")
-    val id: Int,
+    val id: Int?,
     @SerializedName("name")
     val name: String,
     @SerializedName("email")
     val email: String,
     @SerializedName("phone")
-    val phone: String,
+    val phone: String?,
     @SerializedName("message")
     val message: String,
     @SerializedName("created_at")
-    val createdAt: Date,
+    val createdAt: Date?,
     @SerializedName("updated_at")
-    val updatedAt: Date,
+    val updatedAt: Date?,
     @SerializedName("deleted_at")
-    val deletedAt: Date
+    val deletedAt: Date?
 )

@@ -1,9 +1,6 @@
 package com.example.somosmasapp.data
 
-import com.example.somosmasapp.data.dto.Login
-import com.example.somosmasapp.data.dto.News
-import com.example.somosmasapp.data.dto.Register
-import com.example.somosmasapp.data.dto.UserRegister
+import com.example.somosmasapp.data.dto.*
 
 class OngApiRepository(private val ongApiDatasource: OngApiDatasource) {
     fun doRegister(body: Register, listener: ResponseListener<UserRegister>) {
@@ -16,5 +13,9 @@ class OngApiRepository(private val ongApiDatasource: OngApiDatasource) {
 
     fun getNews(listener: ResponseListener<ArrayList<News>>) {
         this.ongApiDatasource.getNews(listener)
+    }
+
+    fun sendContact(body: Contact, listener: ResponseListener<Contact>) {
+        this.ongApiDatasource.sendContact(body, listener)
     }
 }

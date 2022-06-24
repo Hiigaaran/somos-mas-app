@@ -3,16 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Fronko/Documents/GitHub/somos-mas-app/app/src/main/res/layout/signup.xml" value="0.17831813576494426" />
-        <entry key="..\:/Users/Fronko/Documents/GitHub/somos-mas-app/app/src/main/res/layout/signup_Error.xml" value="0.33469202898550726" />
-        <entry key="..\:/Users/Fronko/Documents/GitHub/somos-mas-app/app/src/main/res/layout/signup_dialog.xml" value="0.24003623188405798" />
-        <entry key="..\:/Users/Fronko/Documents/GitHub/somos-mas-app/app/src/main/res/layout/signup_error_mensaje.xml" value="0.1702127659574468" />
-        <entry key="..\:/Users/Fronko/Documents/GitHub/somos-mas-app/app/src/main/res/layout/splash.xml" value="0.1707193515704154" />
-        <entry key="..\:/Users/Fronko/Documents/GitHub/somos-mas-app/app/src/main/res/layout/window_login.xml" value="0.10277777777777777" />
-        <entry key="..\:/Users/Fronko/Documents/GitHub/somos-mas-app/app/src/main/res/layout/window_loginerror.xml" value="0.21603260869565216" />
         <entry key="..\:/Users/nicole.quezada.godoy/Downloads/somos-mas-app_new/app/src/main/res/layout/signup.xml" value="0.1390625" />
         <entry key="..\:/Users/nicole.quezada.godoy/Downloads/somos-mas-app_new/app/src/main/res/layout/window_login.xml" value="0.1390625" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.20878623188405798" />
         <entry key="app/src/main/res/layout/contacto.xml" value="0.20878623188405798" />
+        <entry key="app/src/main/res/layout/fragment_contact.xml" value="0.20878623188405798" />
+        <entry key="app/src/main/res/layout/fragment_contact_dialog.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.20878623188405798" />
         <entry key="app/src/main/res/layout/signup.xml" value="0.24791666666666667" />
         <entry key="app/src/main/res/layout/signup_dialog.xml" value="0.1" />
         <entry key="app/src/main/res/layout/splash.xml" value="0.1" />
